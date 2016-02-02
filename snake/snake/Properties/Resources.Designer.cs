@@ -63,6 +63,16 @@ namespace snake.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Apple {
+            get {
+                object obj = ResourceManager.GetObject("Apple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SnakeImage_DL {
             get {
                 object obj = ResourceManager.GetObject("SnakeImage_DL", resourceCulture);
@@ -196,6 +206,16 @@ namespace snake.Properties {
         internal static System.Drawing.Bitmap SnakeImage_V {
             get {
                 object obj = ResourceManager.GetObject("SnakeImage_V", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wall {
+            get {
+                object obj = ResourceManager.GetObject("Wall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
