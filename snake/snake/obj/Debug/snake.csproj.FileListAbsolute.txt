@@ -7,3 +7,4 @@ C:\Users\Pierre\Documents\snake\snake\snake\obj\Debug\snake.Properties.Resources
 C:\Users\Pierre\Documents\snake\snake\snake\obj\Debug\snake.csproj.GenerateResource.Cache
 C:\Users\Pierre\Documents\snake\snake\snake\obj\Debug\snake.exe
 C:\Users\Pierre\Documents\snake\snake\snake\obj\Debug\snake.pdb
+Z:\matthias sur mon Mac\snake\snake\snake\bin\Debug\snake.exe.config
