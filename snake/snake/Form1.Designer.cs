@@ -29,60 +29,56 @@ namespace snake
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-            this.SuspendLayout();
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 544);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-
-=======
-         
+            this.components = new System.ComponentModel.Container();
             this.Grid_0x0 = new System.Windows.Forms.PictureBox();
-            
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.GamePanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_0x0)).BeginInit();
             this.SuspendLayout();
             // 
-            // Snake
+            // Grid_0x0
             // 
-            
-
-                // 
-                // Grid_0x0
-                // 
-                this.Grid_0x0.Location = new System.Drawing.Point(0, 0);
+            this.Grid_0x0.Location = new System.Drawing.Point(0, 0);
             this.Grid_0x0.Name = "Grid_0x0";
             this.Grid_0x0.Size = new System.Drawing.Size(10, 10);
             this.Grid_0x0.TabIndex = 0;
             this.Grid_0x0.TabStop = false;
-
-           
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 250;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // GamePanel
+            // 
+            this.GamePanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.GamePanel.Location = new System.Drawing.Point(12, 86);
+            this.GamePanel.Name = "GamePanel";
+            this.GamePanel.Size = new System.Drawing.Size(350, 220);
+            this.GamePanel.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 318);
-            
+            this.Controls.Add(this.GamePanel);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Form1";
-            
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Form1_PreviewKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.Grid_0x0)).EndInit();
             this.ResumeLayout(false);
 
->>>>>>> b0a38508cf9ce99d9d5a8f78cfaf17c2a86d8782
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel Palne_Game;
+        
         private System.Windows.Forms.PictureBox Grid_0x0;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel GamePanel;
         
         
         
