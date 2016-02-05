@@ -29,7 +29,7 @@ namespace snake
             Snake = new List<Segment>();
             int i;
           //  Segment seg = new Segment((int)Segment.typeSel.Snake, (int)Segment.direction.DL, new Coords(50, 18));
-            for (i = 5; i >0; i--)
+            for (i = 3; i >0; i--)
             {
                 Snake.Add(
                     new Segment((int)Segment.typeSel.Snake,
@@ -78,6 +78,15 @@ namespace snake
                 case Keys.Down: if (MainGame.Currentdir != (int)Segment.CurrentDir.Up) MainGame.Currentdir = (int)Segment.CurrentDir.Down;
                     break;
                 case Keys.Left: if (MainGame.Currentdir != (int)Segment.CurrentDir.Right) MainGame.Currentdir = (int)Segment.CurrentDir.Left;
+                    break;
+                case Keys.B: MainGame.AddSnakePart(Snake);
+                   
+                    foreach (Segment segi in Snake)
+                    {
+                        this.Controls.Add(segi);
+                        segi.BringToFront();
+                    }
+
                     break;
 
 

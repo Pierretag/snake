@@ -14,6 +14,8 @@ namespace snake
         public enum typeSel { Wall = 1, None, Fruit, Snake };
         private int type;
         public enum direction { DL = 1, DR, H, HD, HL, HR, HU, QD, QL, QR, QU, UL, UR, V };
+        
+
         public enum CurrentDir { Up = 1, Right, Down, Left };
         
         public Coords Coord;
@@ -38,6 +40,17 @@ namespace snake
 
         }
 
+        public Segment(int x, Coords Coord )
+            : base()
+        {
+
+            this.Coord = Coord;
+            type = x;
+            this.Location = new System.Drawing.Point(Coord.x, Coord.y);
+            this.Size = new System.Drawing.Size(10, 10);
+            this.Name = "Grid_" + Coord.x + "x" + Coord.y;
+
+        }
         public void ChangeDirection(int dir)
         {
             if (type == (int)typeSel.Snake)
@@ -84,6 +97,7 @@ namespace snake
             {
                 case (int)CurrentDir.Up: this.Coord.y-=10;
                     this.ChangeDirection((int)direction.HD);
+                    
                     break;
                 case (int)CurrentDir.Left: this.Coord.x-=10;
                     this.ChangeDirection((int)direction.HR);
@@ -97,10 +111,13 @@ namespace snake
             }
 
         }
+
+        
+
         public void CoordApply()
         {
             this.Location = new System.Drawing.Point(Coord.x, Coord.y);
-            Console.WriteLine(Name+"   : "  + Coord.x.ToString() + "    " + Coord.y.ToString());
+           // Console.WriteLine(Name+"   : "  + Coord.x.ToString() + "    " + Coord.y.ToString());
         }
 
         
