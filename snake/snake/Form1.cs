@@ -66,7 +66,7 @@ namespace snake
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            MainGame.SnakeMoving(Snake,Fruit, Wall);
+            if(! MainGame.SnakeMoving(Snake,Fruit, Wall)) Console.WriteLine("Game Over Les coco") ;
 
             this.Controls.Add(Snake.Last());
            if (Wall.Count() != 0) this.Controls.Add(Wall.Last());

@@ -22,7 +22,7 @@ namespace snake
 
 
 
-        public void SnakeMoving(List<Segment> Snake, Segment Fruit , List<Segment> Wall)
+        public Boolean SnakeMoving(List<Segment> Snake, Segment Fruit , List<Segment> Wall)
         {
 
             Segment segBefore = Snake.First();
@@ -48,7 +48,7 @@ namespace snake
 
             segFirst.move(Currentdir);
 
-            SnakeColision(Snake, Fruit, Wall);
+            if(!SnakeColision(Snake, Fruit, Wall)) return false ;
             //Console.WriteLine(" Fisrt is : " + segFirst.Coord.ToString());
 
 
@@ -70,10 +70,10 @@ namespace snake
                 segFirst.Coord.y = GameLocation.y + GameSize.y - 10;
             }
             segFirst.CoordApply();
-
+            return true;
         }
 
-        public void SnakeColision(List<Segment> Snake, Segment Fruit , List<Segment> Wall)
+        public Boolean SnakeColision(List<Segment> Snake, Segment Fruit , List<Segment> Wall)
         {
             Segment segFirst = Snake.First();
             
@@ -120,11 +120,14 @@ namespace snake
                         if (segFirst.Coord.equals(segwall.Coord))
                         {
                             Console.WriteLine("GAME OVER");
+                            return false;
                         }
                     }
                 }
+
                 index++;
             }
+            return true;
 
 
 
