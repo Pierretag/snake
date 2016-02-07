@@ -33,6 +33,7 @@ namespace snake
             this.Grid_0x0 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.GamePanel = new System.Windows.Forms.Panel();
+
             ((System.ComponentModel.ISupportInitialize)(this.Grid_0x0)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,10 +54,14 @@ namespace snake
             // GamePanel
             // 
             this.GamePanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.GamePanel.Location = new System.Drawing.Point(12, 86);
+            this.GamePanel.Location = new System.Drawing.Point(10, 90);
             this.GamePanel.Name = "GamePanel";
             this.GamePanel.Size = new System.Drawing.Size(350, 220);
             this.GamePanel.TabIndex = 1;
+            // 
+            // timer2
+            // 
+         
             // 
             // Form1
             // 
@@ -79,6 +84,7 @@ namespace snake
         private System.Windows.Forms.PictureBox Grid_0x0;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel GamePanel;
+        
         
         
         

@@ -16,6 +16,8 @@ namespace snake
     {
         
         private List<Segment> Snake;
+        private List<Segment> Wall;
+        private Segment Fruit;
         private Game MainGame;
         public Form1()
         {
@@ -25,6 +27,14 @@ namespace snake
                 new Coords(this.GamePanel.Left,this.GamePanel.Top),
                 new Coords(this.GamePanel.Size.Width, this.GamePanel.Size.Height)
                 );
+            Fruit = new Segment((int)Segment.typeSel.Fruit, 0, new Coords(MainGame.GameLocation.x + 50, MainGame.GameLocation.y + 50));
+            this.Controls.Add(Fruit);
+            Fruit.BringToFront();
+
+
+            Wall = new List<Segment>();
+
+
 
             Snake = new List<Segment>();
             int i;
@@ -39,36 +49,53 @@ namespace snake
                         );
 
             }
-            Snake.ElementAt(0).ChangeDirection((int)Segment.direction.HL);
-            Snake.Last().ChangeDirection((int)Segment.direction.QR);
+            Snake.ElementAt(0).PictureLoad((int)Segment.direction.HL);
+            Snake.Last().PictureLoad((int)Segment.direction.QR);
             
             foreach (Segment segi in Snake)
             {
+                
                 this.Controls.Add(segi);
+
                 segi.BringToFront();
             }
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Panel_Game_Paint(object sender, PaintEventArgs e)
-        {
-            
-            
-        }
-
+     
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            MainGame.SnakeMoving(Snake);
+            MainGame.SnakeMoving(Snake,Fruit, Wall);
+
+            this.Controls.Add(Snake.Last());
+           if (Wall.Count() != 0) this.Controls.Add(Wall.Last());
+            Snake.Last().BringToFront();
+            if (Wall.Count() != 0) Wall.Last().BringToFront();
+            /*
+            foreach (Segment segi in Snake)
+            {
+
+                this.Controls.Add(segi);
+                segi.BringToFront();
+
+            }
+            
+            foreach (Segment segi in Wall)
+            {
+
+                this.Controls.Add(segi);
+                segi.BringToFront();
+
+            }
+             * */
         }
+
+
 
         private void Form1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
+            
             switch (e.KeyCode)
             {
                 case Keys.Up: if(MainGame.Currentdir !=(int)Segment.CurrentDir.Down) MainGame.Currentdir = (int)Segment.CurrentDir.Up;
@@ -83,18 +110,22 @@ namespace snake
                    
                     foreach (Segment segi in Snake)
                     {
+                        
                         this.Controls.Add(segi);
                         segi.BringToFront();
+                        
                     }
 
                     break;
-
+               
 
             }
 
             Console.WriteLine("Pressed");
          
         }
+
+       
 
 
     }

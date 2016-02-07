@@ -25,9 +25,16 @@ namespace snake
             c1.y = c2.y;
         }
 
-       public String ToString()
+        public String ToString()
        {
            return "x = " + x.ToString() + "   y = " + y.ToString();
        }
+        public Boolean equals(Coords c2)
+        {
+            if (x == c2.x && y == c2.y) return true;
+            else return false;
+        }
+    
+    
     }
 }

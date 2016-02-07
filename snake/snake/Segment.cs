@@ -13,7 +13,7 @@ namespace snake
     {
         public enum typeSel { Wall = 1, None, Fruit, Snake };
         private int type;
-        public enum direction { DL = 1, DR, H, HD, HL, HR, HU, QD, QL, QR, QU, UL, UR, V };
+        public enum direction { DL = 1, DR, H, HD, HL, HR, HU, QD, QL, QR, QU, UL, UR, V , };
         
 
         public enum CurrentDir { Up = 1, Right, Down, Left };
@@ -23,19 +23,19 @@ namespace snake
 
         public Segment() : base() { this.Coord = new Coords(); }
 
-        public Segment(int x, int dir, Coords Coord)
+        public Segment(int type, int dir, Coords Coord)
             : base()
         {
 
             this.Coord = Coord;
-            type = x;
+            this.type = type;
             this.Location = new System.Drawing.Point(Coord.x, Coord.y);
             this.Size = new System.Drawing.Size(10, 10);
             this.Name = "Grid_" + Coord.x + "x" + Coord.y;
             // Console.WriteLine(this.Name +"  " + x.ToString() + "   " + dir.ToString() );
             //this.TabIndex = 0;
             // this.Controls.Add(this);
-            ChangeDirection(dir);
+            PictureLoad(dir);
 
 
         }
@@ -46,12 +46,12 @@ namespace snake
 
             this.Coord = Coord;
             type = x;
-            this.Location = new System.Drawing.Point(Coord.x, Coord.y);
+           // this.Location = new System.Drawing.Point(Coord.x, Coord.y);
             this.Size = new System.Drawing.Size(10, 10);
             this.Name = "Grid_" + Coord.x + "x" + Coord.y;
 
         }
-        public void ChangeDirection(int dir)
+        public void PictureLoad(int dir)
         {
             if (type == (int)typeSel.Snake)
             {
@@ -88,6 +88,14 @@ namespace snake
 
                 }
             }
+            else if (type == (int)typeSel.Fruit)
+            {
+                this.Image = global::snake.Properties.Resources.Apple;
+            }
+            else if (type == (int)typeSel.Wall)
+            {
+                this.Image = global::snake.Properties.Resources.Wall;
+            }
 
 
         }
@@ -96,17 +104,17 @@ namespace snake
             switch (Currentdir)
             {
                 case (int)CurrentDir.Up: this.Coord.y-=10;
-                    this.ChangeDirection((int)direction.HD);
+                    this.PictureLoad((int)direction.HD);
                     
                     break;
                 case (int)CurrentDir.Left: this.Coord.x-=10;
-                    this.ChangeDirection((int)direction.HR);
+                    this.PictureLoad((int)direction.HR);
                     break;
                 case (int)CurrentDir.Down: this.Coord.y+=10;
-                    this.ChangeDirection((int)direction.HU);
+                    this.PictureLoad((int)direction.HU);
                     break;
                 case (int)CurrentDir.Right: this.Coord.x+=10;
-                    this.ChangeDirection((int)direction.HL);
+                    this.PictureLoad((int)direction.HL);
                     break;
             }
 
@@ -117,7 +125,7 @@ namespace snake
         public void CoordApply()
         {
             this.Location = new System.Drawing.Point(Coord.x, Coord.y);
-           // Console.WriteLine(Name+"   : "  + Coord.x.ToString() + "    " + Coord.y.ToString());
+          // Console.WriteLine(Name+"   : "  + Coord.x.ToString() + "    " + Coord.y.ToString());
         }
 
         
